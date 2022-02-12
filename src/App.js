@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [counter, setCounter] = useState(0);
+  const [input, setInput] = useState("");
+
+  const increaseByOne = () => {
+    setCounter((counter) => counter + 1);
+  };
+
+  const decreaseByOne = () => {
+    setCounter((counter) => counter - 1);
+  };
+
+  const onInput = (event) => {
+    setInput(event.target.value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="counter">{counter}</div>
+      <div className="buttons">
+        <button onClick={increaseByOne}>a very fine button</button>
+        <button onClick={decreaseByOne}>completely normal button</button>
+      </div>
+      <div className="word">{input}</div>
+      <div className="input">
+        <input onChange={onInput} />
+      </div>
     </div>
   );
 }
