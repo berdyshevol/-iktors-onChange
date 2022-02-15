@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-const Input = () => {
+const Input = ({ passwrd }) => {
   const [input, setInput] = useState("");
 
-  const onInput = (event) => {
-    setInput(event.target.value);
+  const onInput = (event1) => {
+    setInput(event1.target.value);
   };
 
   const intoStars = (input) => {
@@ -20,7 +20,7 @@ const Input = () => {
       <div className="word">{intoStars(input)}</div>
       <div className="input">
         <input onChange={onInput} />
-        {input === "viktor" ? "correct" : null}
+        {input === passwrd ? "correct" : null}
       </div>
     </>
   );
