@@ -17,12 +17,10 @@ const Input = () => {
 
   return (
     <>
-      <div className="word">
-        {intoStars(input)}
-        {input === "viktor" ? "correct" : null}
-      </div>
+      <div className="word">{intoStars(input)}</div>
       <div className="input">
         <input onChange={onInput} />
+        {input === "viktor" ? "correct" : null}
       </div>
     </>
   );
